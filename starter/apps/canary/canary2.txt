@@ -1,0 +1,48 @@
+Have included output of `kubectl get pods --all-namespaces` when canary-v2 consists of
+50% of deployment as well as 100% of deployment.
+
+
+
+Below is when canary-v2 is at 50% and canary-v1 at 50% deployment
+
+NAMESPACE     NAME                           READY   STATUS        RESTARTS   AGE
+kube-system   aws-node-7wwnz                 1/1     Running       0          19m
+kube-system   aws-node-qctvd                 1/1     Running       0          19m
+kube-system   coredns-f47955f89-f9pkq        1/1     Running       0          23m
+kube-system   coredns-f47955f89-kgdzz        1/1     Running       0          23m
+kube-system   kube-proxy-2hgxn               1/1     Running       0          19m
+kube-system   kube-proxy-p24vp               1/1     Running       0          19m
+udacity       blue-8475cbdf46-28hsf          1/1     Running       0          15m
+udacity       blue-8475cbdf46-n9fvh          1/1     Running       0          15m
+udacity       blue-8475cbdf46-zbjn4          1/1     Running       0          15m
+udacity       canary-v1-64598c676f-kvq6q     1/1     Running       0          15m
+udacity       canary-v1-64598c676f-sbqtp     1/1     Running       0          15m
+udacity       canary-v2-5dc9c56687-5xggt     1/1     Running       0          8m51s
+udacity       canary-v2-5dc9c56687-tvl8f     1/1     Running       0          8m51s
+udacity       debug                          0/1     Terminating   0          95s
+udacity       green-5cdd96c9b4-9gzpq         1/1     Running       0          15m
+udacity       green-5cdd96c9b4-kvr6c         1/1     Running       0          15m
+udacity       green-5cdd96c9b4-nvn75         1/1     Running       0          15m
+udacity       hello-world-794458d64d-pgtpp   1/1     Running       0          15m
+
+
+Below is when canary-v2 is at 100%
+
+NAMESPACE     NAME                           READY   STATUS    RESTARTS   AGE
+kube-system   aws-node-7wwnz                 1/1     Running   0          20m
+kube-system   aws-node-qctvd                 1/1     Running   0          19m
+kube-system   coredns-f47955f89-f9pkq        1/1     Running   0          24m
+kube-system   coredns-f47955f89-kgdzz        1/1     Running   0          24m
+kube-system   kube-proxy-2hgxn               1/1     Running   0          19m
+kube-system   kube-proxy-p24vp               1/1     Running   0          20m
+udacity       blue-8475cbdf46-28hsf          1/1     Running   0          15m
+udacity       blue-8475cbdf46-n9fvh          1/1     Running   0          15m
+udacity       blue-8475cbdf46-zbjn4          1/1     Running   0          15m
+udacity       canary-v2-5dc9c56687-5xggt     1/1     Running   0          9m29s
+udacity       canary-v2-5dc9c56687-6s44t     1/1     Running   0          16s
+udacity       canary-v2-5dc9c56687-tvl8f     1/1     Running   0          9m29s
+udacity       canary-v2-5dc9c56687-xhlfx     1/1     Running   0          16s
+udacity       green-5cdd96c9b4-9gzpq         1/1     Running   0          15m
+udacity       green-5cdd96c9b4-kvr6c         1/1     Running   0          15m
+udacity       green-5cdd96c9b4-nvn75         1/1     Running   0          15m
+udacity       hello-world-794458d64d-pgtpp   1/1     Running   0          16m

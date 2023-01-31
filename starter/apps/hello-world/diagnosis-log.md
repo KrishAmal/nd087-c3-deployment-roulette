@@ -1,0 +1,4 @@
+- After deploying, found that the liveness probes were failing, causing the pods to restart and end in an error state.
+- When diagnosed, found that the endpoint path inside `httpGet` for `livenessProbe` was `/nginx_status`, which was returning `500`
+- Checked the image the `hello-world` pod was running and ran `cat main.py` to view the contents of the app. Found out that `/healthz` should be the endpoint (which is the same convention followed by Kubernetes API server for health checks) for liveness probing.
+- Updated the `path` for the liveness probe to `/healthz` and ran `kubectl logs <POD-NAME>` which returned `Healthy!`
